@@ -17,7 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.pnhung.makemecry.entity.InputData;
 
 public class DiviceFile {
-	private static final int MAX_FILE_SIZE = 50000;
+	private static final int MAX_FILE_SIZE = 70000;
 	private static final String FORMAT_NUMBER = "[-]?[0-9]+[,]?[0-9]*";
 	private List<InputData> listData;
 	private int numberColumn;

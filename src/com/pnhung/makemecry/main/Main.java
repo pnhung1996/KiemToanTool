@@ -16,24 +16,29 @@ public class Main {
 	public static void main(String[] args) {
 		MakeMeCry why = new MakeMeCry();
 		DonNotDongCut cut = new DonNotDongCut();
+		String folderOutput = "output HCM";
 
-		for (int i = 1; i <= 20; i++) {
+		for (int i = 3; i <= 3; i++) {
 
-			why.doEveryThingHere("D:\\akebono\\source12345\\GLK" + i + ".xlsx", "");
+			why.doEveryThingHere("D:\\akebono\\source HCM\\GLK" + i + ".xlsx",
+					"");
 			why.diTimDoiUng();
-			why.ghiRafile("D:\\akebono\\output12345\\FileDich.csv");
-			why.ghiRafileSai("D:\\akebono\\output12345\\ListSai" + i + ".xlsx");
+			why.ghiRafile("D:\\akebono\\" + folderOutput + "\\FileDich1.csv");
+			why.ghiRafileSai("D:\\akebono\\" + folderOutput + "\\ListSai" + i
+					+ ".xlsx");
 
-			cut.doEveryThingHere("D:\\akebono\\output12345\\ListSai" + i + ".xlsx", "");
+			cut.doEveryThingHere("D:\\akebono\\" + folderOutput + "\\ListSai"
+					+ i + ".xlsx", "");
 			cut.hotCut();
-			cut.ghiRafile("D:\\akebono\\output12345\\DichSai.csv");
+			cut.ghiRafile("D:\\akebono\\" + folderOutput + "\\DichSai1.csv");
 
 			System.out.println("Đã hoàn thành file GLK " + i);
 			why = new MakeMeCry();
 			cut = new DonNotDongCut();
 		}
 //		 DiviceFile diviceFile = new DiviceFile();
-//		 diviceFile.doEveryThingHere("D:\\akebono\\GL goc 12345.csv", "D:\\akebono\\source12345\\");
+//		 diviceFile.doEveryThingHere("D:\\akebono\\GL goc phu thai hcm2020.csv",
+//		 "D:\\akebono\\source HCM\\");
 
 	}
 }

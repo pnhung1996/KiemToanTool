@@ -9,12 +9,9 @@ package com.pnhung.makemecry.entity;
  *
  */
 public class InputData {
-	public static String[] LIST_COLUMN = { "Entered Debit", "Entered Credit",
-			"Entered Balance Amount", "Balance",
-			"Journal Entry Line Description", "Source", "Category", "Batch",
-			"Batch Description", "Header Name", "Journal Entry Description",
-			"Reconciliation Reference", "Code", "Code", "Description", "Code",
-			"Description", "Code VAS" };
+	public static String[] LIST_COLUMN = { "Tháng", "TenCategory", "TenBrand",
+			"MaCategory", "SoHDD", "Crtd_User", "Id", "Sub_3", "LoaiTK",
+			"nganhhang", "KenhBH", "Module", "Qty", "mota", "Tieukhoan" };
 	private String soChungTu, dienGiai, suKien, loaiTK, taiKhoan;
 	private String ngayChungTu, ngayGhiSo;
 	private double psNo, psCo;
