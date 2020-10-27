@@ -11,7 +11,7 @@ package com.pnhung.makemecry.entity;
 public class InputData {
 	public static String[] LIST_COLUMN = { "Tháng", "TenCategory", "TenBrand",
 			"MaCategory", "SoHDD", "Crtd_User", "Id", "Sub_3", "LoaiTK",
-			"nganhhang", "KenhBH", "Module", "Qty", "mota", "Tieukhoan" };
+			"nganhhang", "KenhBH", "Module", "Qty", "Tieukhoan" };
 	private String soChungTu, dienGiai, suKien, loaiTK, taiKhoan;
 	private String ngayChungTu, ngayGhiSo;
 	private double psNo, psCo;

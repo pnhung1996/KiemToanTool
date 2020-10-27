@@ -18,7 +18,7 @@ public class Main {
 		DonNotDongCut cut = new DonNotDongCut();
 		String folderOutput = "output HCM";
 
-		for (int i = 3; i <= 3; i++) {
+		for (int i = 1; i <= 2; i++) {
 
 			why.doEveryThingHere("D:\\akebono\\source HCM\\GLK" + i + ".xlsx",
 					"");

@@ -433,13 +433,13 @@ public class MakeMeCry {
 			}
 			if (listEq.containsKey(input.getTaiKhoan())) {
 				InputData existData = listEq.get(input.getTaiKhoan());
-				existData.setDienGiai(existData.getDienGiai() + "" + "/"
+				existData.setDienGiai(existData.getDienGiai() + "" + "\\"
 						+ input.getDienGiai());
-				existData.setSuKien(existData.getSuKien() + "" + "/"
+				existData.setSuKien(existData.getSuKien() + "" + "\\"
 						+ input.getSuKien());
 				for (int j = 0; j < numberColumn; j++) {
 					existData.setColumnNumber(j, existData.getColumnNumber(j)
-							+ "" + "/" + input.getColumnNumber(j));
+							+ "" + "\\" + input.getColumnNumber(j));
 				}
 				existData.setSoTien(Math.round((existData.getSoTien() + input
 						.getSoTien()) * 100) / 100.0);
