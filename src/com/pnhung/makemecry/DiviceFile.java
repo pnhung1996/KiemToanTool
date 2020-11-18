@@ -34,26 +34,28 @@ public class DiviceFile {
 			String[] input = null;
 			BufferedReader bir = new BufferedReader(new InputStreamReader(
 					new FileInputStream(filePath), "UTF8"));
-			String line = bir.readLine();
+			String additionString = InputData.LIST_COLUMN.length == 0 ? ""
+					: " ";
+			String line = bir.readLine() + additionString;
 
 			while (line != null) {
 				input = line.split(";");
-				while(input.length < (9+InputData.LIST_COLUMN.length)){
-					line += (" " + bir.readLine());
+				while (input.length < (9 + InputData.LIST_COLUMN.length)) {
+					line += (" " + bir.readLine() + additionString);
 					input = line.split(";");
 				}
 				// input = splitString(line);
 				InputData inputData = new InputData();
 				inputData.setIndex(index++);
-				
-				 System.out.println(index);
-//				System.out.println(line);
+
+				System.out.println(index);
+				// System.out.println(line);
 				// System.out.println(input.length);
 				for (int i = 0; i < input.length; i++) {
 					String data = input[i].replace("ⱴ", ";");
 					switch (i) {
 					case MakeMeCry.NGAY_GHI_SO:
-						if (data == ""||data == "-") {
+						if (data == "" || data == "-") {
 							data = "0";
 						}
 						inputData.setNgayGhiSo(data.replace(",", "ⱴ"));
@@ -62,7 +64,7 @@ public class DiviceFile {
 						inputData.setSoChungTu(data.replace(",", "ⱴ"));
 						break;
 					case MakeMeCry.NGAY_CHUNG_TU:
-						if (data == ""||data == "-") {
+						if (data == "" || data == "-") {
 							data = "0";
 						}
 						inputData.setNgayChungTu(data.replace(",", "ⱴ"));
@@ -112,6 +114,9 @@ public class DiviceFile {
 				}
 				listData.add(inputData);
 				line = bir.readLine();
+				if (line != null) {
+					line += additionString;
+				}
 			}
 			bir.close();
 			if (listData.size() > 0) {
