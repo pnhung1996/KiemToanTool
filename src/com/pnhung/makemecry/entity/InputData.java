@@ -13,8 +13,28 @@ public class InputData {
 	private String soChungTu, dienGiai, suKien, loaiTK, taiKhoan;
 	private String ngayChungTu, ngayGhiSo;
 	private double psNo, psCo;
-	private int index;
+	private double index;
 	private String[] addColumn = new String[LIST_COLUMN.length];
+
+	public InputData() {
+	}
+
+	public InputData(InputData inputData) {
+		index = inputData.index + 0.5;
+		addColumn = new String[InputData.LIST_COLUMN.length];
+		soChungTu = inputData.soChungTu;
+		dienGiai = inputData.dienGiai;
+		suKien = inputData.suKien;
+		loaiTK = inputData.loaiTK;
+		taiKhoan = inputData.taiKhoan;
+		ngayChungTu = inputData.ngayChungTu;
+		psNo = inputData.psNo;
+		psCo = inputData.psCo;
+		ngayGhiSo = inputData.ngayGhiSo;
+		for (int i = 0; i < addColumn.length; i++) {
+			addColumn[i] = inputData.getColumnNumber(i);
+		}
+	}
 
 	/**
 	 * @return the ngayGhiSo
@@ -171,7 +191,7 @@ public class InputData {
 	/**
 	 * @return the index
 	 */
-	public int getIndex() {
+	public double getIndex() {
 		return index;
 	}
 
@@ -179,7 +199,7 @@ public class InputData {
 	 * @param index
 	 *            the index to set
 	 */
-	public void setIndex(int index) {
+	public void setIndex(double index) {
 		this.index = index;
 	}
 
