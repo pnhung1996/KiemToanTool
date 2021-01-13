@@ -288,8 +288,8 @@ public class MakeMeCryExtension {
 				InputData equalCo = Common.getEqualData(conNo, listCoKey);
 				if (equalCo.getTaiKhoan() != null) {
 					OutputData outputData = setOutputData(conNo, equalCo);
-					listNoKey.remove(conNo);
-					listCoKey.remove(equalCo);
+					listNoAfter.remove(conNo);
+					listCoAfter.remove(equalCo);
 					listOutTmp.add(outputData);
 					i--;
 					continue;
@@ -949,7 +949,7 @@ public class MakeMeCryExtension {
 	private void diTimSoHang(List<InputData> listInput, double target,
 			List<InputData> listSoHang, List<List<InputData>> cacListThoaMan) {
 		currentTime = Calendar.getInstance().getTimeInMillis();
-		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 100) {
+		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 10) {
 			return;
 		}
 		double sum = tinhTongSoTienIn(listSoHang);

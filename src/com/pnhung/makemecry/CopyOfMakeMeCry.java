@@ -766,7 +766,7 @@ public class CopyOfMakeMeCry {
 	private void diTimSoHang(List<InputData> listInput, double target,
 			List<InputData> listSoHang, List<List<InputData>> cacListThoaMan) {
 		currentTime = Calendar.getInstance().getTimeInMillis();
-		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 10000) {
+		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 10) {
 			return;
 		}
 		double sum = tinhTongSoTienIn(listSoHang);
