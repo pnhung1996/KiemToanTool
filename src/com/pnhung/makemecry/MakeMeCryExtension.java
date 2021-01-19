@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
@@ -219,6 +218,7 @@ public class MakeMeCryExtension {
 		listNo.sort(descNo);
 		listCo.sort(descCo);
 		for (String key : keySet) {
+			
 			// Loại bỏ các key sai
 			// if(!key.equals("C7101-190125001")) {
 			// continue;
@@ -653,20 +653,6 @@ public class MakeMeCryExtension {
 	}
 
 	/**
-	 * @param key
-	 * @param listNo
-	 * @return
-	 */
-	private InputData getFirst(String key, List<InputData> list) {
-		for (InputData inputData : list) {
-			if (inputData.getSoChungTu().equals(key)) {
-				return inputData;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * @param firstNo
 	 * @param listCo
 	 * @return
@@ -696,34 +682,6 @@ public class MakeMeCryExtension {
 		return listSoHang;
 	}
 
-	/**
-	 * @param key
-	 * @param listNo
-	 * @return
-	 */
-	private boolean exist(String key, List<InputData> list) {
-		for (InputData inputData : list) {
-			if (inputData.getSoChungTu().equals(key)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * @param hieuSo
-	 * @param listCoTmp
-	 * @return
-	 */
-	private int timBanGhiQuaHieuSo(double hieuSo, List<InputData> list) {
-		int soBanGhi = 0;
-		for (InputData input : list) {
-			if (input.getPsCo() == hieuSo || input.getPsNo() == hieuSo) {
-				soBanGhi++;
-			}
-		}
-		return soBanGhi;
-	}
 
 	/**
 	 * @param conNo
@@ -879,7 +837,6 @@ public class MakeMeCryExtension {
 			writer.flush();
 			writer.close();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
 	}
@@ -935,7 +892,7 @@ public class MakeMeCryExtension {
 			// Closing the workbook
 			workbook.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 
 	}
@@ -949,7 +906,7 @@ public class MakeMeCryExtension {
 	private void diTimSoHang(List<InputData> listInput, double target,
 			List<InputData> listSoHang, List<List<InputData>> cacListThoaMan) {
 		currentTime = Calendar.getInstance().getTimeInMillis();
-		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 10) {
+		if (cacListThoaMan.size() == 1 || currentTime - startTime >= 1) {
 			return;
 		}
 		double sum = tinhTongSoTienIn(listSoHang);

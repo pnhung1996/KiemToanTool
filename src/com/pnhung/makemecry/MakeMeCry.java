@@ -214,11 +214,6 @@ public class MakeMeCry {
 		listNo.sort(descNo);
 		listCo.sort(descCo);
 		for (String key : keySet) {
-			// Loại bỏ các key sai
-			// if(!key.equals("C7101-190125001")) {
-			// continue;
-			// }
-			// boolean bangNhau = xuLyTruongHopSai(listNo, listCo, key);
 			List<InputData> listNoKey = getListKey(key, listNo);
 			List<InputData> listCoKey = getListKey(key, listCo);
 			// List<InputData> listNoTmp = new ArrayList<InputData>();
@@ -228,8 +223,6 @@ public class MakeMeCry {
 			// listNoTmp.addAll(listNoKey);
 			listCoTmp.addAll(listCoKey);
 			double sum2 = Math.round(tinhTongSoTienIn(listCoTmp) * 100) / 100.0;
-			// bangNhau = true;
-			// if (bangNhau) {
 			// Tìm các cặp bằng nhau
 			for (int i = 0; i < listNoKey.size(); i++) {
 				InputData conNo = listNoKey.get(i);
@@ -268,18 +261,7 @@ public class MakeMeCry {
 				if (firstNo.getPsNo() > firstCo.getPsCo()) {
 					List<InputData> tongHopCacSoHang = getListSoHang(firstNo,
 							listCoKey);
-					// List<InputData> tongHopCacSoHang = new ArrayList<>();
-					// trienThoi(listCoKey, firstNo.getSoTien(),
-					// listDataThoaMan);
-					//
-					// if (listDataThoaMan.size() > 1 || listDataThoaMan.size()
-					// == 0) {
-					// listDataThoaMan.clear();
-					// break;
-					// }
 					listNoKey.remove(firstNo);
-					// tongHopCacSoHang.addAll(listDataThoaMan.get(0));
-					// listDataThoaMan.clear();
 					if (tongHopCacSoHang.size() == 0) {
 						listNoAfter.add(firstNo);
 					} else {
@@ -289,24 +271,12 @@ public class MakeMeCry {
 							listOutTmp.add(outputData);
 							listCoKey.remove(inputData);
 						}
-						// listDataThoaMan.clear();
 					}
 
 				} else {
 					List<InputData> tongHopCacSoHang = getListSoHang(firstCo,
 							listNoKey);
-					// List<InputData> tongHopCacSoHang = new ArrayList<>();
-					// trienThoi(listNoKey, firstCo.getSoTien(),
-					// listDataThoaMan);
-					//
-					// if (listDataThoaMan.size() > 1 || listDataThoaMan.size()
-					// == 0) {
-					// listDataThoaMan.clear();
-					// break;
-					// }
 					listCoKey.remove(firstCo);
-					// tongHopCacSoHang.addAll(listDataThoaMan.get(0));
-					// listDataThoaMan.clear();
 					if (tongHopCacSoHang.size() == 0) {
 						listCoAfter.add(firstCo);
 					} else {
@@ -316,7 +286,6 @@ public class MakeMeCry {
 							listOutTmp.add(outputData);
 							listNoKey.remove(inputData);
 						}
-						// listDataThoaMan.clear();
 					}
 				}
 			}
@@ -337,8 +306,8 @@ public class MakeMeCry {
 				InputData equalCo = Common.getEqualData(conNo, listCoKey);
 				if (equalCo.getTaiKhoan() != null) {
 					OutputData outputData = setOutputData(conNo, equalCo);
-					listNoKey.remove(conNo);
-					listCoKey.remove(equalCo);
+					listNoAfter.remove(conNo);
+					listCoAfter.remove(equalCo);
 					listOutTmp.add(outputData);
 					i--;
 					continue;

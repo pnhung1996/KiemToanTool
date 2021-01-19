@@ -4,12 +4,20 @@
  */
 package com.pnhung.makemecry.entity;
 
+
 /**
  * @author Phùng Nghĩa Hùng
  *
  */
 public class InputData {
-	public static String[] LIST_COLUMN = {};
+	public static String[] LIST_COLUMN = { "PL Account Code",
+			"Pl_Account_Description", "SL Account Code", "Parent Department",
+			"Child Description", "Enter Currency", "Enter Debits",
+			"Enter Credits", "Project No", "Sub-Project Code",
+			"Sales Contract No.", "AP BATCH No.", "PO Number", "Description2",
+			"Vendor Name/Customer Name", "Vendor Num/Customer Num",
+			"Invoice Num", "Po Date", "Expenses Beneficiary Month", "Markup",
+			"PU Number", "Tax Rate", "Change Flag", "Entry Item" };
 	private String soChungTu, dienGiai, suKien, loaiTK, taiKhoan;
 	private String ngayChungTu, ngayGhiSo;
 	private double psNo, psCo;

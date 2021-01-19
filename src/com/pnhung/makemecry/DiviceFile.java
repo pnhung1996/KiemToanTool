@@ -17,8 +17,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.pnhung.makemecry.entity.InputData;
 
 public class DiviceFile {
-	private static final int MAX_FILE_SIZE = 70000;
+	private static final int MAX_FILE_SIZE = 20000;
 	private static final String FORMAT_NUMBER = "[-]?[0-9]+[,]?[0-9]*";
+	private static final String FORMAT_NUMBER_WITH_DOT = "[-]?[0-9]+[\\.]?[0-9]*";
+	private static final String SEPARATOR = ",";
 	private List<InputData> listData;
 	private int numberColumn;
 
@@ -29,6 +31,7 @@ public class DiviceFile {
 
 	public void doEveryThingHere(String filePath, String savePath) {
 		try {
+			System.out.println("Đã hoàn thành file GLK ");
 			int index = 0;
 			int fileIndex = 1;
 			String[] input = null;
@@ -39,10 +42,10 @@ public class DiviceFile {
 			String line = bir.readLine() + additionString;
 
 			while (line != null) {
-				input = line.split(";");
+				input = line.split(SEPARATOR);
 				while (input.length < (9 + InputData.LIST_COLUMN.length)) {
 					line += (" " + bir.readLine() + additionString);
-					input = line.split(";");
+					input = line.split(SEPARATOR);
 				}
 				// input = splitString(line);
 				InputData inputData = new InputData();
@@ -52,7 +55,7 @@ public class DiviceFile {
 				// System.out.println(line);
 				// System.out.println(input.length);
 				for (int i = 0; i < input.length; i++) {
-					String data = input[i].replace("ⱴ", ";");
+					String data = input[i].replace("ⱴ", SEPARATOR);
 					switch (i) {
 					case MakeMeCry.NGAY_GHI_SO:
 						if (data == "" || data == "-") {
@@ -82,14 +85,16 @@ public class DiviceFile {
 						inputData.setTaiKhoan(data.replace(",", "ⱴ"));
 						break;
 					case MakeMeCry.PS_NO:
-						if (!data.matches(FORMAT_NUMBER)) {
+						if (!data.matches(FORMAT_NUMBER)
+								&& !data.matches(FORMAT_NUMBER_WITH_DOT)) {
 							data = "0.0";
 						}
 						inputData.setPsNo(Double.parseDouble(data.replace(",",
 								".")));
 						break;
 					case MakeMeCry.PS_CO:
-						if (!data.matches(FORMAT_NUMBER)) {
+						if (!data.matches(FORMAT_NUMBER)
+								&& !data.matches(FORMAT_NUMBER_WITH_DOT)) {
 							data = "0.0";
 						}
 						inputData.setPsCo(Double.parseDouble(data.replace(",",

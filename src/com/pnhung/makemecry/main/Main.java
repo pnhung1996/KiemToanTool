@@ -43,13 +43,13 @@ public class Main {
 ////		 "D:\\akebono\\GL\\");
 //	}
 	public static void main(String[] args) {
-		MakeMeCryExtension why = new MakeMeCryExtension();
+		MakeMeCry why = new MakeMeCry();
 		DonNotDongCut cut = new DonNotDongCut();
-		String folderOutput = "Test";
+		String folderOutput = "35k";
 
-		for (int i = 1; i <= 1; i++) {
+		for (int i = 8; i <= 8; i++) {
 
-			why.doEveryThingHere("D:\\akebono\\Test\\GLK" + i + ".xlsx",
+			why.doEveryThingHere("D:\\akebono\\35k\\GLK" + i + ".xlsx",
 					"");
 			why.diTimDoiUng();
 			why.ghiRafile("D:\\akebono\\" + folderOutput + "\\FileDich.csv");
@@ -62,11 +62,11 @@ public class Main {
 			cut.ghiRafile("D:\\akebono\\" + folderOutput + "\\DichSai.csv");
 
 			System.out.println("Đã hoàn thành file GLK " + i);
-			why = new MakeMeCryExtension();
+			why = new MakeMeCry();
 			cut = new DonNotDongCut();
 		}
 //		 DiviceFile diviceFile = new DiviceFile();
-//		 diviceFile.doEveryThingHere("D:\\akebono\\GL goc 1.csv",
-//		 "D:\\akebono\\GL\\");
+//		 diviceFile.doEveryThingHere("D:\\akebono\\GL goc 7-12.csv",
+//		 "D:\\akebono\\35k\\");
 	}
 }
